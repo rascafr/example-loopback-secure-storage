@@ -42,6 +42,7 @@ module.exports = function(SecretDocument) {
         // Get the document info so we can delete the stored file
         SecretDocument.findById(id, (err, docObj) => {
             if (err) return cb(err);
+            else if (!docObj) return cb({name: 'Entity not found', status: '404', 'message': 'Given document id does not match any database entry'})
 
             // get file, get config / key, decrypt and send it back to the client
             SecureStorage.streamAsDecryptedHTTPFile(docObj.uniqueName, res, cb);
@@ -56,7 +57,7 @@ module.exports = function(SecretDocument) {
         // Get the document info so we can delete the stored file
         SecretDocument.findById(id, (err, docObj) => {
             if (err) return cb(err);
-            else if (docObj === null) return cb(null, false);
+            else if (!docObj) return cb({name: 'Entity not found', status: '404', 'message': 'Given document id does not match any database entry'})
             else {
                 // delete file
                 SecureStorage.secureDelete(docObj.uniqueName, (deleted) => {
