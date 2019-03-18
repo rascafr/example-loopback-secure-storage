@@ -1,0 +1,10 @@
+{
+    "secureStorageConfig": {
+        "name": "secureStorageConfig",
+        "root": "./storage/secret-documents",
+        "nameMakeUnique": true,
+        "maxFileSize": 52428800,
+        "allowedContentTypes": ["application/pdf"],
+        "sysKey": "ee822309e831fd787ad808a90d8fb03e"
+    }
+}
