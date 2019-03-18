@@ -17,8 +17,11 @@ The example shows a container to store PDF in a secure way, using the *SecureSto
 **Available routes:**
 
 - `/api/SecretDocuments`: will return the list of the stored documents
-- `http://localhost:3000/api/SecretDocuments/createFile` will attempt to upload the given file and store it as a encrypted file using the `storage.json` config file
-- `http://localhost:3000/api/SecretDocuments/{documentId}/downloadFile`: will try to download the given document
+
+- `/api/SecretDocuments/createFile` will attempt to upload the given file and store it as a encrypted file using the `storage.json` config file
+
+- `/api/SecretDocuments/{documentId}/downloadFile`: will try to download the given document
+
 - `/api/SecretDocuments/{documentId}/deleteFile`: will try to delete the stored document and it database entry
 
 ## I want it!
