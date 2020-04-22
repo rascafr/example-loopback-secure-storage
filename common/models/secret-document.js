@@ -12,7 +12,7 @@ module.exports = function(SecretDocument) {
 
         // Our SecureStorage module config has been configured to accept only pdf files under 50MB
         // so we don't have to perform any check here
-        SecureStorage.saveAsEncryptedHTTPFile(ctx, (err, fileObj) => {
+        SecureStorage.uploadFile(ctx, (err, fileObj) => {
             if (err) return cb(err)
 
             // ensure we have a file
@@ -45,7 +45,7 @@ module.exports = function(SecretDocument) {
             else if (!docObj) return cb({name: 'Entity not found', status: '404', 'message': 'Given document id does not match any database entry'})
 
             // get file, get config / key, decrypt and send it back to the client
-            SecureStorage.streamAsDecryptedHTTPFile(docObj.uniqueName, res, cb);
+            SecureStorage.downloadFile(docObj.uniqueName, res, cb);
         });
     }
 
@@ -60,7 +60,7 @@ module.exports = function(SecretDocument) {
             else if (!docObj) return cb({name: 'Entity not found', status: '404', 'message': 'Given document id does not match any database entry'})
             else {
                 // delete file
-                SecureStorage.secureDelete(docObj.uniqueName, (deleted) => {
+                SecureStorage.deleteFile(docObj.uniqueName, (deleted) => {
 
                     // if the pdf is not here (unknown reason) well we still continue,
                     // cause document is unusable without so deletion is the only exit
