@@ -21,3 +21,4 @@ dbSecretDocs.json
 .yo-rc.json
 .es*
 .editorconfig
+*.pdf
