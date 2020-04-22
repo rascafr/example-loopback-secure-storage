@@ -4,6 +4,7 @@ const loopback = require('loopback');
 const boot = require('loopback-boot');
 const opn = require('opn');
 const app = module.exports = loopback();
+const SecureStorage = require('loopback-secure-storage'); // our lovely module
 
 /*
  * body-parser is a piece of express middleware that
@@ -27,6 +28,9 @@ app.middleware('parse', bodyParser.urlencoded({
 }))
 // file upload
 app.use(multer().any()); // for parsing multipart/form-data
+
+// -- Init SecureStorage here --
+SecureStorage.init('secureStorageConfig');
 
 app.start = function() {
   // start the web server
