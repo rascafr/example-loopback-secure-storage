@@ -10,6 +10,12 @@ Just clone the repository, then run `npm i` inside and you're done.
 
 Start the project with `npm start`, the API explorer webpage will open directly.
 
+**Note:** The swagger is started at server initialisation for documentation purpose, but you might want to use Postman instead for instance (mostly for `createFile` and `downloadFile`), or even Curl! 😎
+
+```bash
+curl --location --request GET 'http://localhost:3000/api/SecretDocuments/1234/downloadFile' > test.pdf
+```
+
 ## Project's API
 
 The example shows a container to store PDF in a secure way, using the *SecureStorage* component with AES-128 encryption.
