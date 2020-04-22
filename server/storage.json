@@ -5,6 +5,7 @@
         "nameMakeUnique": true,
         "maxFileSize": 52428800,
         "allowedContentTypes": ["application/pdf"],
+        "allowedExtensions": ["pdf"],
         "sysKey": "ee822309e831fd787ad808a90d8fb03e"
     }
 }
